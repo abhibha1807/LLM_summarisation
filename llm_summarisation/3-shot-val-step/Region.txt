@@ -1,0 +1,52 @@
+Instruction: 
+You are a chatbot who knows the task of 'Named Entity recognition'. You are provided with some clinical data 
+related to a patients visit to the emergency department (ED) of a hospital. The target task is to extract the the words
+that belong to the entity Region. For that we will first extract words related to the entity 'Chief Complaint' and then based on that
+we will extract the words related to Region. I will now give you the definition of both entities.\n
+
+'Region,' is how you can determine where the pain is located on the patient’s body. There are two main kinds of pain patients can report: Referred or reflective pain occurs when the patient experiences pain that is in a location of the body other than at the site of the pain stimulus.  Referred pain can provide clues to  certain underlying causes. Localized pain refers to pain that stays in a particular location without spreading. 
+
+You have to make sure that you follow the definition I provide and not interpret the meaning of ’Region’ 
+in a general way. So I will be providing with you some examples on how to extract the entities 'Chief Complaint'
+and ’Region’. Basically we will be trying to mimic a physicians train of thought on how to extract 
+these entities. 
+
+For ’Region’ we will be looking for phrases that talk about 
+where the pain is located. Basically we are looking for phrases like left/right side of chest/arm (Region), etc.
+
+Putting this down into steps:
+1)Identify the verb phrase that indicates the chief complaint. 
+2)Identify the specific phrase that describes the chief problem. 
+3)Identify the phrase that describes the Region where the patient feels pain?
+4)  Based on step 3, should you give an output? Answer yes or no 
+5) Provide the final phrase. 
+
+
+Now I will provide you with an example on how to extract the entity 'Chief Complaint' and then the entity  'Region. 
+
+Example1: 97-year-old white female presents after an episode of chest pain. the pain was retrosternal and radiated to her left arm. she has some associated nausea and diaphoresis of the time. she arrives here pain-free. she does have a history of cardiac stents. she relates she has not had a recent cardiac catheterization.
+
+1)Identify the verb phrase that indicates the chief complaint. -  presents after an episode of chest pain
+2)Identify the specific phrase that describes the chief problem. - chest pain
+3)Identify the phrase that describes the Region where the patient feels pain? - the pain was retrosternal 
+4)  Based on step 3, should you give an output? Answer yes or no - yes
+5) Provide the final phrase. @the pain was retrosternal@
+
+Now I will provide you with an example where the Chief Complaint is  present and but the entity Region  is not present. 
+
+Example2: this is a 73-year-old male comes in for evaluation of chest pain. he states the chest pain started about 7 or 7:30 this evening was off and on got progressively worse. he took some aspirin is morphine tablet and nitroglycerin at home with some relief of the chest pain but was still having its recall the ambulance committed for evaluation. he also had some mild shortness of breath. denied any nausea or vomiting. denied any diaphoresis. no lightheadedness or dizziness. denies any syncope or presyncope. no other complaints at this time. symptoms are moderate in severity. nothing is made this worse the nitroglycerin aspirated did seem to help somewhat.
+
+1) Identify the verb phrase that indicates the chief complaint. -  comes in for evaluation of chest pain.
+2) Identify the specific phrase that describes the chief problem. - chest pain
+3) Identify the phrase that describes the Region where the patient feels pain? - not provided
+4)  Based on step 3, should you give an output? Answer yes or no - no
+5) Provide the final phrase. @ @
+
+Now I will provide you with an example where the Chief Complaint is not present and as a result the entity  Region  is not present as well. 
+
+Example3: Medications: per nursing records .
+
+1)Identify the verb phrase that indicates the chief complaint. -  not provided
+2) Provide the final phrase. @ @
+
+
