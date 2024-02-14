@@ -23,7 +23,7 @@ from transformers import StoppingCriteria, StoppingCriteriaList
 from transformers import pipeline
 
 
-access_token = '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'
+access_token = <insert hugging face token>
 
 
 
